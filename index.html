@@ -1,649 +1,595 @@
+Signallayer coming soon light · HTML
+Copy
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SignalLayer — Coming Soon</title>
-<meta name="description" content="B2B Signal Intelligence. Know which accounts to target before your competitors do. Join the waitlist.">
+<title>SignalLayer — Know Which Accounts Are Ready to Buy</title>
+<meta name="description" content="SignalLayer gives B2B SaaS teams a weekly ranked list of their best accounts to target — powered by real buying signals, not guesswork.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-  :root {
-    --navy: #0C1A2E;
-    --navy-mid: #1E3A5F;
-    --teal: #0D9488;
-    --teal-dark: #0F766E;
-    --teal-mid: #99F6E4;
-    --teal-light: #CCFBF1;
-    --accent: #F59E0B;
-    --white: #FFFFFF;
-    --off-white: #F0FDFA;
-    --grey: #64748B;
-  }
+/* ── THEME TOKENS ── */
+[data-theme="light"] {
+  --bg:          #FFFFFF;
+  --bg2:         #F8FAFC;
+  --bg3:         #F0FDFA;
+  --card:        #FFFFFF;
+  --card-border: #E2E8F0;
+  --card-hover:  #F0FDFA;
+  --navy:        #0C1A2E;
+  --teal:        #0D9488;
+  --teal-dk:     #0F766E;
+  --teal-mid:    #0D9488;
+  --teal-light:  #99F6E4;
+  --accent:      #D97706;
+  --text:        #0C1A2E;
+  --text2:       #334155;
+  --text3:       #64748B;
+  --text4:       #94A3B8;
+  --invert-logo: #0C1A2E;
+  --logo-second: #0D9488;
+  --grid-line:   rgba(13,148,136,0.06);
+  --hero-title:  #0C1A2E;
+  --hero-em:     transparent;
+  --hero-em-stroke: #0D9488;
+  --hero-accent: #0D9488;
+  --step-num:    rgba(13,148,136,0.12);
+  --mock-bg:     #F8FAFC;
+  --mock-border: #E2E8F0;
+  --mock-chrome: #F1F5F9;
+  --mock-chrome-border: #E2E8F0;
+  --mock-nav-active-bg: rgba(13,148,136,0.08);
+  --mock-nav-active-text: #0F766E;
+  --mock-nav-text: #94A3B8;
+  --mock-stat-bg: #FFFFFF;
+  --mock-stat-val: #0C1A2E;
+  --mock-stat-teal: #0D9488;
+  --mock-acct-bg: #FFFFFF;
+  --mock-acct-hot: #F0FDFA;
+  --mock-acct-hot-border: rgba(13,148,136,0.3);
+  --mock-acct-name: #0C1A2E;
+  --mock-acct-sub: #94A3B8;
+  --mock-contact-name: #64748B;
+  --mock-overlay: linear-gradient(to top, #FFFFFF 30%, transparent 100%);
+  --source-bg:   #FFFFFF;
+  --source-hover: #F0FDFA;
+  --source-sep:  #E2E8F0;
+  --pricing-bg:  #F8FAFC;
+  --pricing-border: #E2E8F0;
+  --switch-bg:   #0C1A2E;
+  --switch-knob: #99F6E4;
+  --footer-logo: #94A3B8;
+  --footer-text: #CBD5E1;
+  --url-text:    #94A3B8;
+  --heading-text: #0C1A2E;
+  --badge-bg:    rgba(13,148,136,0.08);
+  --badge-border: rgba(13,148,136,0.25);
+  --badge-text:  #0F766E;
+  --eyebrow:     #0D9488;
+  --section-label: #94A3B8;
+  --section-sub: #64748B;
+  --step-desc:   #475569;
+  --pricing-body: #475569;
+  --comp-them:   #CBD5E1;
+  --noise-display: none;
+  --particles:   none;
+  --cursor-color: #0D9488;
+  --cursor-ring:  rgba(13,148,136,0.4);
+  --coming-bg:   rgba(13,148,136,0.06);
+  --coming-border: rgba(13,148,136,0.2);
+  --coming-text: #475569;
+  --coming-dot: #0D9488;
+}
 
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+[data-theme="dark"] {
+  --bg:          #0C1A2E;
+  --bg2:         #0C1A2E;
+  --bg3:         #0C1A2E;
+  --card:        rgba(255,255,255,0.03);
+  --card-border: rgba(153,246,228,0.1);
+  --card-hover:  rgba(13,148,136,0.06);
+  --navy:        #0C1A2E;
+  --teal:        #0D9488;
+  --teal-dk:     #0F766E;
+  --teal-mid:    #99F6E4;
+  --teal-light:  #CCFBF1;
+  --accent:      #F59E0B;
+  --text:        #FFFFFF;
+  --text2:       rgba(255,255,255,0.7);
+  --text3:       rgba(255,255,255,0.4);
+  --text4:       rgba(255,255,255,0.2);
+  --invert-logo: #FFFFFF;
+  --logo-second: #99F6E4;
+  --grid-line:   rgba(13,148,136,0.04);
+  --hero-title:  #FFFFFF;
+  --hero-em:     transparent;
+  --hero-em-stroke: #99F6E4;
+  --hero-accent: #99F6E4;
+  --step-num:    rgba(13,148,136,0.15);
+  --mock-bg:     rgba(255,255,255,0.03);
+  --mock-border: rgba(153,246,228,0.1);
+  --mock-chrome: rgba(255,255,255,0.04);
+  --mock-chrome-border: rgba(255,255,255,0.06);
+  --mock-nav-active-bg: rgba(13,148,136,0.15);
+  --mock-nav-active-text: #99F6E4;
+  --mock-nav-text: rgba(255,255,255,0.4);
+  --mock-stat-bg: rgba(255,255,255,0.03);
+  --mock-stat-val: #FFFFFF;
+  --mock-stat-teal: #99F6E4;
+  --mock-acct-bg: rgba(255,255,255,0.03);
+  --mock-acct-hot: rgba(13,148,136,0.06);
+  --mock-acct-hot-border: rgba(13,148,136,0.25);
+  --mock-acct-name: rgba(255,255,255,0.85);
+  --mock-acct-sub: rgba(255,255,255,0.3);
+  --mock-contact-name: rgba(255,255,255,0.35);
+  --mock-overlay: linear-gradient(to top, #0C1A2E 30%, transparent 100%);
+  --source-bg:   rgba(12,26,46,0.97);
+  --source-hover: rgba(13,148,136,0.05);
+  --source-sep:  rgba(255,255,255,0.06);
+  --pricing-bg:  rgba(255,255,255,0.03);
+  --pricing-border: rgba(153,246,228,0.15);
+  --switch-bg:   rgba(255,255,255,0.1);
+  --switch-knob: #99F6E4;
+  --footer-logo: rgba(255,255,255,0.3);
+  --footer-text: rgba(255,255,255,0.15);
+  --url-text:    rgba(255,255,255,0.25);
+  --heading-text: #FFFFFF;
+  --badge-bg:    rgba(13,148,136,0.08);
+  --badge-border: rgba(153,246,228,0.25);
+  --badge-text:  #99F6E4;
+  --eyebrow:     #99F6E4;
+  --section-label: rgba(255,255,255,0.2);
+  --section-sub: rgba(255,255,255,0.4);
+  --step-desc:   rgba(255,255,255,0.4);
+  --pricing-body: rgba(255,255,255,0.4);
+  --comp-them:   rgba(255,255,255,0.2);
+  --noise-display: block;
+  --particles:   block;
+  --cursor-color: #99F6E4;
+  --cursor-ring:  rgba(153,246,228,0.35);
+  --coming-bg:   rgba(13,148,136,0.08);
+  --coming-border: rgba(153,246,228,0.2);
+  --coming-text: rgba(255,255,255,0.45);
+  --coming-dot: #99F6E4;
+}
 
-  html { scroll-behavior: smooth; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
+  transition: background 0.4s ease, color 0.4s ease;
+}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--navy);
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
-    cursor: none;
-  }
+/* ── CURSOR ── */
+.cursor {
+  position: fixed; width: 8px; height: 8px;
+  background: var(--cursor-color); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s ease, background 0.3s;
+  mix-blend-mode: multiply;
+}
+[data-theme="dark"] .cursor { mix-blend-mode: screen; }
+.cursor-ring {
+  position: fixed; width: 36px; height: 36px;
+  border: 1px solid var(--cursor-ring); border-radius: 50%;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform 0.18s ease, border-color 0.3s;
+}
 
-  /* ── CUSTOM CURSOR ── */
-  .cursor {
-    position: fixed;
-    width: 8px; height: 8px;
-    background: var(--teal-mid);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-    mix-blend-mode: screen;
-  }
-  .cursor-ring {
-    position: fixed;
-    width: 36px; height: 36px;
-    border: 1px solid rgba(153, 246, 228, 0.35);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: transform 0.18s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
-  }
-  body:hover .cursor { opacity: 1; }
+#bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.noise {
+  display: var(--noise-display);
+  position: fixed; inset: -50%; width: 200%; height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 1; opacity: 0.5;
+}
+.grid-overlay {
+  position: fixed; inset: 0;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px; pointer-events: none; z-index: 1;
+  transition: opacity 0.4s;
+}
 
-  /* ── BACKGROUND CANVAS ── */
-  #bg-canvas {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-  }
+main { position: relative; z-index: 10; min-height: 100vh; display: flex; flex-direction: column; }
 
-  /* ── NOISE OVERLAY ── */
-  .noise {
-    position: fixed;
-    inset: -50%;
-    width: 200%; height: 200%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.5;
-  }
+/* ── NAV ── */
+nav {
+  padding: 28px 48px; display: flex; align-items: center; justify-content: space-between;
+  opacity: 0; animation: fadeIn 0.8s 0.2s ease forwards;
+  border-bottom: 1px solid var(--card-border);
+  transition: border-color 0.4s;
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg); backdrop-filter: blur(12px);
+}
+.nav-logo { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: -0.04em; color: var(--invert-logo); transition: color 0.4s; }
+.nav-logo span { color: var(--logo-second); transition: color 0.4s; }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.nav-badge {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--badge-text);
+  border: 1px solid var(--badge-border); padding: 6px 14px; border-radius: 20px;
+  background: var(--badge-bg); transition: all 0.4s;
+}
 
-  /* ── GRID OVERLAY ── */
-  .grid-overlay {
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(13,148,136,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(13,148,136,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-    pointer-events: none;
-    z-index: 1;
-  }
+/* ── THEME SWITCH ── */
+.theme-switch {
+  display: flex; align-items: center; gap: 8px; cursor: pointer;
+}
+.switch-track {
+  width: 44px; height: 24px; border-radius: 12px;
+  background: var(--switch-bg); position: relative;
+  transition: background 0.3s; cursor: pointer; border: none; outline: none;
+  flex-shrink: 0;
+}
+.switch-knob {
+  position: absolute; top: 3px; left: 3px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--switch-knob);
+  transition: transform 0.3s ease, background 0.3s;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+}
+[data-theme="dark"] .switch-knob { transform: translateX(20px); }
+.switch-label {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text3); transition: color 0.4s;
+  white-space: nowrap;
+}
 
-  /* ── MAIN LAYOUT ── */
-  main {
-    position: relative;
-    z-index: 10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+/* ── HERO ── */
+.hero {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center;
+  padding: 80px 24px 60px; max-width: 900px; margin: 0 auto; width: 100%;
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--eyebrow); margin-bottom: 28px;
+  opacity: 0; animation: fadeUp 0.7s 0.4s ease forwards;
+  display: flex; align-items: center; gap: 12px; transition: color 0.4s;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: ''; display: block; width: 32px; height: 1px;
+  background: var(--teal); opacity: 0.3;
+}
+.hero-title {
+  font-family: 'Poppins', sans-serif; font-weight: 900;
+  font-size: clamp(48px, 7.5vw, 92px); line-height: 0.95;
+  letter-spacing: -0.04em; color: var(--hero-title); margin-bottom: 32px;
+  opacity: 0; animation: fadeUp 0.7s 0.55s ease forwards; transition: color 0.4s;
+}
+.hero-title em {
+  font-style: normal; color: var(--hero-em);
+  -webkit-text-stroke: 1.5px var(--hero-em-stroke);
+  transition: color 0.4s, -webkit-text-stroke-color 0.4s;
+}
+.hero-title .accent-word { color: var(--hero-accent); transition: color 0.4s; }
+.hero-sub {
+  font-size: clamp(16px, 2vw, 19px); font-weight: 300;
+  color: var(--text2); max-width: 580px; line-height: 1.7;
+  margin-bottom: 14px; opacity: 0; animation: fadeUp 0.7s 0.7s ease forwards; transition: color 0.4s;
+}
+.hero-sub strong { color: var(--text); font-weight: 500; }
+.hero-sub2 {
+  font-size: clamp(14px, 1.6vw, 16px); font-weight: 300;
+  color: var(--text3); max-width: 520px; line-height: 1.65;
+  margin-bottom: 48px; opacity: 0; animation: fadeUp 0.7s 0.78s ease forwards;
+  font-style: italic; transition: color 0.4s;
+}
 
-  /* ── NAV ── */
-  nav {
-    padding: 32px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    opacity: 0;
-    animation: fadeIn 0.8s 0.2s ease forwards;
-  }
-  .nav-logo {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: 22px;
-    letter-spacing: -0.04em;
-    color: white;
-  }
-  .nav-logo span { color: var(--teal-mid); }
-  .nav-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--teal-mid);
-    border: 1px solid rgba(153,246,228,0.25);
-    padding: 6px 14px;
-    border-radius: 20px;
-    background: rgba(13,148,136,0.08);
-  }
+/* ── COMING SOON ── */
+.coming-wrap {
+  width: 100%; max-width: 480px;
+  opacity: 0; animation: fadeUp 0.7s 0.85s ease forwards;
+}
+.coming-box {
+  background: var(--coming-bg); border: 1px solid var(--coming-border);
+  border-radius: 14px; padding: 20px 28px;
+  display: flex; align-items: center; gap: 16px;
+  transition: background 0.4s, border-color 0.4s;
+}
+.coming-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--coming-dot); flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(13,148,136,0.15);
+  animation: pulse 2s infinite;
+}
+.coming-text {
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--coming-dot); font-weight: 500;
+}
+.coming-sub {
+  margin-top: 12px; font-size: 12px; color: var(--coming-text);
+  font-family: 'DM Mono', monospace; letter-spacing: 0.05em;
+  text-align: center; transition: color 0.4s;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(13,148,136,0.15); }
+  50% { box-shadow: 0 0 0 8px rgba(13,148,136,0.05); }
+}
 
-  /* ── HERO ── */
-  .hero {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 24px 40px;
-    max-width: 900px;
-    margin: 0 auto;
-    width: 100%;
-  }
+/* ── HOW IT WORKS ── */
+.how-section {
+  position: relative; z-index: 10;
+  padding: 80px 24px 60px; max-width: 900px; margin: 0 auto; width: 100%;
+  opacity: 0; animation: fadeUp 0.9s 1.0s ease forwards;
+}
+.section-label {
+  text-align: center; font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--section-label); margin-bottom: 16px; transition: color 0.4s;
+}
+.section-title {
+  text-align: center; font-family: 'Poppins', sans-serif; font-weight: 900;
+  font-size: clamp(24px, 3.5vw, 36px); letter-spacing: -0.03em;
+  color: var(--heading-text); margin-bottom: 10px; line-height: 1.1; transition: color 0.4s;
+}
+.section-title span { color: var(--teal); transition: color 0.4s; }
+.section-sub {
+  text-align: center; font-size: 15px; color: var(--section-sub);
+  max-width: 520px; margin: 0 auto 52px; line-height: 1.65;
+  font-weight: 300; transition: color 0.4s;
+}
 
-  .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--teal-mid);
-    margin-bottom: 28px;
-    opacity: 0;
-    animation: fadeUp 0.7s 0.4s ease forwards;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .hero-eyebrow::before, .hero-eyebrow::after {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: rgba(153,246,228,0.3);
-  }
+.steps {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: var(--source-sep);
+  border-radius: 16px; overflow: hidden; transition: background 0.4s;
+}
+.step {
+  background: var(--source-bg); padding: 32px 28px;
+  position: relative; transition: background 0.3s;
+}
+.step:hover { background: var(--source-hover); }
+.step-num {
+  font-family: 'Poppins', sans-serif; font-weight: 900;
+  font-size: 48px; letter-spacing: -0.05em;
+  color: var(--step-num); line-height: 1; margin-bottom: 16px; transition: color 0.4s;
+}
+.step-title {
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
+  letter-spacing: -0.02em; color: var(--heading-text); margin-bottom: 10px; transition: color 0.4s;
+}
+.step-desc { font-size: 13px; color: var(--step-desc); line-height: 1.65; font-weight: 300; transition: color 0.4s; }
+.step-desc strong { color: var(--text2); font-weight: 500; }
 
-  .hero-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: clamp(52px, 8vw, 96px);
-    line-height: 0.95;
-    letter-spacing: -0.04em;
-    color: white;
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.7s 0.55s ease forwards;
-  }
-  .hero-title em {
-    font-style: normal;
-    color: transparent;
-    -webkit-text-stroke: 1.5px var(--teal-mid);
-  }
-  .hero-title .accent-word {
-    color: var(--teal-mid);
-    position: relative;
-    display: inline-block;
-  }
+/* ── MOCKUP ── */
+.mockup-section {
+  position: relative; z-index: 10;
+  padding: 20px 24px 80px; max-width: 1100px; margin: 0 auto; width: 100%;
+  opacity: 0; animation: fadeUp 0.9s 1.1s ease forwards;
+}
+.mockup-shell {
+  background: var(--mock-bg); border: 1px solid var(--mock-border);
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+}
+[data-theme="dark"] .mockup-shell {
+  box-shadow: 0 0 0 1px rgba(13,148,136,0.05), 0 40px 80px rgba(0,0,0,0.5), 0 0 120px rgba(13,148,136,0.06);
+}
+.mockup-chrome {
+  background: var(--mock-chrome); border-bottom: 1px solid var(--mock-chrome-border);
+  padding: 12px 16px; display: flex; align-items: center; gap: 12px; transition: all 0.4s;
+}
+.chrome-dots { display: flex; gap: 6px; }
+.chrome-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--card-border); transition: background 0.4s; }
+[data-theme="dark"] .chrome-dot { background: rgba(255,255,255,0.1); }
+.chrome-bar {
+  flex: 1; height: 24px; background: var(--bg2);
+  border-radius: 6px; display: flex; align-items: center; padding: 0 12px;
+  border: 1px solid var(--card-border); transition: all 0.4s;
+}
+[data-theme="dark"] .chrome-bar { background: rgba(255,255,255,0.05); border-color: transparent; }
+.chrome-url { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--url-text); transition: color 0.4s; }
 
-  .hero-sub {
-    font-size: clamp(16px, 2vw, 20px);
-    font-weight: 300;
-    color: rgba(255,255,255,0.5);
-    max-width: 560px;
-    line-height: 1.65;
-    margin-bottom: 56px;
-    opacity: 0;
-    animation: fadeUp 0.7s 0.7s ease forwards;
-  }
-  .hero-sub strong {
-    color: rgba(255,255,255,0.85);
-    font-weight: 500;
-  }
+.mockup-content {
+  padding: 24px; display: grid;
+  grid-template-columns: 210px 1fr; gap: 20px; min-height: 400px;
+}
+.mock-sidebar { display: flex; flex-direction: column; gap: 4px; }
+.mock-sidebar-header {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--text4); padding: 8px 12px 12px; transition: color 0.4s;
+}
+.mock-nav-item {
+  display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+  border-radius: 8px; font-size: 13px; color: var(--mock-nav-text); cursor: default; transition: all 0.3s;
+}
+.mock-nav-item.active {
+  background: var(--mock-nav-active-bg); color: var(--mock-nav-active-text);
+  border: 1px solid rgba(13,148,136,0.2);
+}
+.mock-nav-icon { width: 16px; height: 16px; border-radius: 3px; background: currentColor; opacity: 0.4; flex-shrink: 0; }
+.mock-nav-item.active .mock-nav-icon { opacity: 1; }
 
-  /* ── WAITLIST FORM ── */
-  .waitlist-wrap {
-    width: 100%;
-    max-width: 480px;
-    opacity: 0;
-    animation: fadeUp 0.7s 0.85s ease forwards;
-  }
-  .waitlist-form {
-    display: flex;
-    gap: 0;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(153,246,228,0.2);
-    border-radius: 14px;
-    padding: 6px;
-    backdrop-filter: blur(12px);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  .waitlist-form:focus-within {
-    border-color: rgba(153,246,228,0.5);
-    box-shadow: 0 0 0 3px rgba(13,148,136,0.12), 0 0 40px rgba(13,148,136,0.08);
-  }
-  .waitlist-input {
-    flex: 1;
-    background: none;
-    border: none;
-    outline: none;
-    padding: 14px 18px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    color: white;
-    min-width: 0;
-  }
-  .waitlist-input::placeholder { color: rgba(255,255,255,0.3); }
-  .waitlist-btn {
-    background: var(--teal);
-    color: white;
-    border: none;
-    padding: 14px 24px;
-    border-radius: 10px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: none;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    transition: background 0.2s ease, transform 0.15s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .waitlist-btn::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .waitlist-btn:hover { background: var(--teal-dark); }
-  .waitlist-btn:active { transform: scale(0.97); }
-  .waitlist-btn.success {
-    background: rgba(13,148,136,0.3);
-    color: var(--teal-mid);
-    pointer-events: none;
-  }
+.mock-main { display: flex; flex-direction: column; gap: 14px; }
+.mock-top-bar { display: flex; justify-content: space-between; align-items: center; }
+.mock-heading { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.03em; color: var(--heading-text); transition: color 0.4s; }
+.mock-badge {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  background: rgba(217,119,6,0.08); border: 1px solid rgba(217,119,6,0.2);
+  padding: 4px 10px; border-radius: 20px;
+}
+[data-theme="dark"] .mock-badge { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.25); color: #F59E0B; }
 
-  .waitlist-note {
-    margin-top: 14px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.25);
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.05em;
-    text-align: center;
-  }
-  .waitlist-count {
-    color: var(--teal-mid);
-    font-weight: 500;
-  }
+.mock-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+.mock-stat {
+  background: var(--mock-stat-bg); border: 1px solid var(--card-border);
+  border-radius: 10px; padding: 12px 14px; transition: all 0.4s;
+}
+.mock-stat-label { font-size: 10px; font-family: 'DM Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text4); margin-bottom: 5px; transition: color 0.4s; }
+.mock-stat-value { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.03em; color: var(--mock-stat-val); transition: color 0.4s; }
+.mock-stat-value.teal { color: var(--mock-stat-teal); }
+.mock-stat-delta { font-size: 10px; color: #16A34A; margin-top: 2px; }
+[data-theme="dark"] .mock-stat-delta { color: rgba(134,239,172,0.8); }
 
-  /* ── PRODUCT MOCKUP ── */
-  .mockup-section {
-    position: relative;
-    z-index: 10;
-    padding: 20px 24px 80px;
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-    opacity: 0;
-    animation: fadeUp 0.9s 1.1s ease forwards;
-  }
+.mock-accounts { display: flex; flex-direction: column; gap: 8px; }
+.mock-account {
+  background: var(--mock-acct-bg); border: 1px solid var(--card-border);
+  border-radius: 10px; padding: 12px 16px;
+  display: flex; align-items: center; gap: 14px;
+  position: relative; overflow: hidden; flex-wrap: wrap;
+  transition: all 0.4s;
+}
+.mock-account.hot { border-color: var(--mock-acct-hot-border); background: var(--mock-acct-hot); }
+.mock-account-logo {
+  width: 32px; height: 32px; border-radius: 6px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 12px;
+}
+.mock-account-info { flex: 1; min-width: 0; }
+.mock-account-name { font-size: 13px; font-weight: 600; color: var(--mock-acct-name); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color 0.4s; }
+.mock-account-sub { font-size: 11px; color: var(--mock-acct-sub); margin-top: 1px; font-family: 'DM Mono', monospace; transition: color 0.4s; }
+.mock-buying-group { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.bg-avatars { display: flex; }
+.bg-avatar {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono', monospace; font-size: 8px; font-weight: 500;
+  margin-left: -6px; color: var(--navy); transition: border-color 0.4s;
+}
+.bg-avatar:first-child { margin-left: 0; }
+.bg-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text4); white-space: nowrap; transition: color 0.4s; }
+.mock-signal-score { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.mock-score-value { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px; letter-spacing: -0.03em; }
+.mock-score-bar-wrap { width: 60px; height: 3px; background: var(--card-border); border-radius: 2px; overflow: hidden; transition: background 0.4s; }
+.mock-score-bar { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--teal), #5EEAD4); }
+.mock-account-tag {
+  position: absolute; top: 0; right: 0;
+  font-size: 9px; font-family: 'DM Mono', monospace; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 0 10px 0 8px;
+}
+.tag-hot { background: rgba(217,119,6,0.1); color: var(--accent); }
+[data-theme="dark"] .tag-hot { background: rgba(245,158,11,0.15); color: #F59E0B; }
+.tag-rising { background: rgba(13,148,136,0.1); color: var(--teal); }
+[data-theme="dark"] .tag-rising { background: rgba(13,148,136,0.15); color: #99F6E4; }
 
-  .mockup-shell {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(153,246,228,0.1);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow:
-      0 0 0 1px rgba(13,148,136,0.05),
-      0 40px 80px rgba(0,0,0,0.5),
-      0 0 120px rgba(13,148,136,0.06);
-    backdrop-filter: blur(8px);
-  }
+.mock-contacts { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; padding-top: 8px; border-top: 1px solid var(--card-border); width: 100%; transition: border-color 0.4s; }
+.mock-contact-row { display: flex; align-items: center; gap: 8px; }
+.mock-contact-name { font-size: 10px; color: var(--mock-contact-name); font-family: 'DM Mono', monospace; flex: 1; transition: color 0.4s; }
+.mock-contact-role { font-size: 9px; color: var(--text4); font-family: 'DM Mono', monospace; width: 90px; transition: color 0.4s; }
+.mock-contact-score { font-size: 11px; font-family: 'Poppins', sans-serif; font-weight: 800; }
 
-  /* Browser chrome */
-  .mockup-chrome {
-    background: rgba(255,255,255,0.04);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .chrome-dots { display: flex; gap: 6px; }
-  .chrome-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-  }
-  .chrome-bar {
-    flex: 1;
-    height: 24px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-  }
-  .chrome-url {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: rgba(255,255,255,0.25);
-    letter-spacing: 0.03em;
-  }
+.mockup-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
+  background: var(--mock-overlay); pointer-events: none; transition: background 0.4s;
+}
 
-  /* Dashboard content */
-  .mockup-content {
-    padding: 24px;
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 20px;
-    min-height: 380px;
-  }
+/* ── SOURCES ── */
+.sources-section {
+  position: relative; z-index: 10;
+  padding: 0 24px 80px; max-width: 900px; margin: 0 auto; width: 100%;
+  opacity: 0; animation: fadeUp 0.9s 1.2s ease forwards;
+}
+.sources-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2px; background: var(--source-sep); border-radius: 16px; overflow: hidden; transition: background 0.4s;
+}
+.source {
+  background: var(--source-bg); padding: 28px;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: background 0.3s;
+}
+.source:hover { background: var(--source-hover); }
+.source-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(13,148,136,0.08); border: 1px solid rgba(13,148,136,0.2);
+  display: flex; align-items: center; justify-content: center;
+}
+.source-icon svg { width: 16px; height: 16px; }
+.source-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: -0.02em; color: var(--heading-text); transition: color 0.4s; }
+.source-desc { font-size: 12.5px; color: var(--step-desc); line-height: 1.6; font-weight: 300; transition: color 0.4s; }
+.source-tag {
+  display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--teal); background: rgba(13,148,136,0.08);
+  border: 1px solid rgba(13,148,136,0.2); padding: 3px 9px; border-radius: 20px;
+  width: fit-content;
+}
 
-  /* Sidebar */
-  .mock-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .mock-sidebar-header {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    padding: 8px 12px 12px;
-  }
-  .mock-nav-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 9px 12px;
-    border-radius: 8px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.4);
-    cursor: default;
-    transition: all 0.2s;
-  }
-  .mock-nav-item.active {
-    background: rgba(13,148,136,0.15);
-    color: var(--teal-mid);
-    border: 1px solid rgba(13,148,136,0.2);
-  }
-  .mock-nav-icon {
-    width: 16px; height: 16px;
-    border-radius: 3px;
-    background: currentColor;
-    opacity: 0.4;
-    flex-shrink: 0;
-  }
-  .mock-nav-item.active .mock-nav-icon { opacity: 1; }
+/* ── PRICING ── */
+.pricing-section {
+  position: relative; z-index: 10;
+  padding: 0 24px 100px; max-width: 700px; margin: 0 auto; width: 100%;
+  opacity: 0; animation: fadeUp 0.9s 1.3s ease forwards;
+  text-align: center;
+}
+.pricing-card {
+  background: var(--pricing-bg); border: 1px solid var(--pricing-border);
+  border-radius: 20px; padding: 48px 40px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  transition: all 0.4s;
+}
+[data-theme="dark"] .pricing-card { box-shadow: 0 0 80px rgba(13,148,136,0.06); }
+.pricing-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 16px;
+}
+.pricing-headline {
+  font-family: 'Poppins', sans-serif; font-weight: 900;
+  font-size: clamp(22px, 3.5vw, 32px); letter-spacing: -0.03em;
+  color: var(--heading-text); line-height: 1.1; margin-bottom: 16px; transition: color 0.4s;
+}
+.pricing-headline span { color: var(--teal); }
+.pricing-body {
+  font-size: 15px; color: var(--pricing-body); line-height: 1.7;
+  font-weight: 300; max-width: 480px; margin: 0 auto 32px; transition: color 0.4s;
+}
+.pricing-body strong { color: var(--text2); font-weight: 500; }
+.pricing-comparison {
+  display: flex; align-items: center; justify-content: center;
+  gap: 24px; margin-bottom: 32px;
+}
+.comp-item { text-align: center; }
+.comp-price {
+  font-family: 'Poppins', sans-serif; font-weight: 900;
+  font-size: 28px; letter-spacing: -0.04em; line-height: 1;
+}
+.comp-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text4); margin-top: 4px; transition: color 0.4s; }
+.comp-them .comp-price { color: var(--comp-them); text-decoration: line-through; text-decoration-color: rgba(239,68,68,0.4); transition: color 0.4s; }
+.comp-us .comp-price { color: var(--teal); }
+.comp-divider { font-size: 24px; color: var(--text4); transition: color 0.4s; }
 
-  /* Main panel */
-  .mock-main { display: flex; flex-direction: column; gap: 16px; }
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 10; text-align: center;
+  padding: 0 24px 48px; border-top: 1px solid var(--card-border);
+  padding-top: 32px; transition: border-color 0.4s;
+  opacity: 0; animation: fadeIn 1s 1.5s ease forwards;
+}
+.footer-logo { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 16px; letter-spacing: -0.04em; color: var(--footer-logo); margin-bottom: 10px; transition: color 0.4s; }
+.footer-logo span { color: var(--logo-second); opacity: 0.5; transition: color 0.4s; }
+.footer-note { font-size: 12px; font-family: 'DM Mono', monospace; color: var(--footer-text); letter-spacing: 0.08em; transition: color 0.4s; }
 
-  .mock-top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .mock-heading {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    letter-spacing: -0.03em;
-    color: white;
-  }
-  .mock-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: rgba(245,158,11,0.1);
-    border: 1px solid rgba(245,158,11,0.25);
-    padding: 4px 10px;
-    border-radius: 20px;
-  }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  /* Stats row */
-  .mock-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  .mock-stat {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 10px;
-    padding: 14px 16px;
-  }
-  .mock-stat-label {
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    margin-bottom: 6px;
-  }
-  .mock-stat-value {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    font-size: 22px;
-    letter-spacing: -0.03em;
-    color: white;
-  }
-  .mock-stat-value.teal { color: var(--teal-mid); }
-  .mock-stat-delta {
-    font-size: 11px;
-    color: rgba(134,239,172,0.8);
-    margin-top: 2px;
-  }
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  .mockup-content { grid-template-columns: 1fr; }
+  .mock-sidebar { display: none; }
+  .steps, .sources-grid { grid-template-columns: 1fr; }
+  .mock-stats { grid-template-columns: repeat(2,1fr); }
+  .pricing-comparison { flex-direction: column; gap: 12px; }
+  .switch-label { display: none; }
+}
+@media (max-width: 480px) {
 
-  /* Account list */
-  .mock-accounts { display: flex; flex-direction: column; gap: 8px; }
-  .mock-account {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 10px;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    position: relative;
-    overflow: hidden;
-  }
-  .mock-account.hot {
-    border-color: rgba(13,148,136,0.25);
-    background: rgba(13,148,136,0.06);
-  }
-  .mock-account-logo {
-    width: 32px; height: 32px;
-    border-radius: 6px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: 12px;
-    letter-spacing: -0.03em;
-  }
-  .mock-account-info { flex: 1; min-width: 0; }
-  .mock-account-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.85);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .mock-account-sub {
-    font-size: 11px;
-    color: rgba(255,255,255,0.3);
-    margin-top: 1px;
-    font-family: 'DM Mono', monospace;
-  }
-  .mock-signal-score {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-  }
-  .mock-score-value {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    font-size: 15px;
-    letter-spacing: -0.03em;
-  }
-  .mock-score-bar-wrap {
-    width: 60px;
-    height: 3px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .mock-score-bar {
-    height: 100%;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--teal), var(--teal-mid));
-  }
-  .mock-account-tag {
-    position: absolute;
-    top: 0; right: 0;
-    font-size: 9px;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 0 10px 0 8px;
-  }
-  .tag-hot { background: rgba(245,158,11,0.15); color: var(--accent); }
-  .tag-rising { background: rgba(13,148,136,0.15); color: var(--teal-mid); }
-
-  /* Blur / CTA overlay on mockup */
-  .mockup-overlay {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 60%;
-    background: linear-gradient(to top, var(--navy) 30%, transparent 100%);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 32px;
-    pointer-events: none;
-  }
-
-  /* ── FEATURES ROW ── */
-  .features {
-    position: relative;
-    z-index: 10;
-    padding: 0 24px 100px;
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 100%;
-    opacity: 0;
-    animation: fadeUp 0.9s 1.3s ease forwards;
-  }
-  .features-label {
-    text-align: center;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    margin-bottom: 48px;
-  }
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 16px;
-    overflow: hidden;
-  }
-  .feature {
-    background: rgba(12,26,46,0.95);
-    padding: 36px 32px;
-    position: relative;
-    transition: background 0.3s ease;
-  }
-  .feature:hover { background: rgba(13,148,136,0.05); }
-  .feature-icon {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    background: rgba(13,148,136,0.1);
-    border: 1px solid rgba(13,148,136,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  .feature-icon svg { width: 18px; height: 18px; }
-  .feature-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    font-size: 15px;
-    letter-spacing: -0.02em;
-    color: white;
-    margin-bottom: 10px;
-  }
-  .feature-desc {
-    font-size: 13px;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.65;
-    font-weight: 300;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    padding: 0 24px 48px;
-    opacity: 0;
-    animation: fadeIn 1s 1.5s ease forwards;
-  }
-  .footer-logo {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: 16px;
-    letter-spacing: -0.04em;
-    color: rgba(255,255,255,0.3);
-    margin-bottom: 12px;
-  }
-  .footer-logo span { color: rgba(153,246,228,0.4); }
-  .footer-note {
-    font-size: 12px;
-    font-family: 'DM Mono', monospace;
-    color: rgba(255,255,255,0.15);
-    letter-spacing: 0.08em;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 24px; }
-    .mockup-content { grid-template-columns: 1fr; }
-    .mock-sidebar { display: none; }
-    .features-grid { grid-template-columns: 1fr; }
-    .mock-stats { grid-template-columns: repeat(3, 1fr); }
-  }
-  @media (max-width: 480px) {
-    .mock-stats { grid-template-columns: 1fr 1fr; }
-    .waitlist-form { flex-direction: column; }
-    .waitlist-btn { border-radius: 8px; }
-  }
+}
 </style>
 </head>
 <body>
@@ -651,155 +597,166 @@
 <canvas id="bg-canvas"></canvas>
 <div class="noise"></div>
 <div class="grid-overlay"></div>
-
-<!-- Custom cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
 
 <main>
+
   <!-- NAV -->
   <nav>
     <div class="nav-logo">Signal<span>Layer</span></div>
-    <div class="nav-badge">Private Beta</div>
+    <div class="nav-right">
+      <div class="nav-badge">Private Beta — UK SMEs</div>
+      <button class="switch-track" id="themeToggle" aria-label="Toggle dark mode">
+        <div class="switch-knob" id="switchKnob">
+          <span id="switchIcon">☀️</span>
+        </div>
+      </button>
+      <span class="switch-label" id="switchLabel">Light</span>
+    </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-eyebrow">B2B Signal Intelligence</div>
-
+    <div class="hero-eyebrow">B2B Signal Intelligence for Growing Teams</div>
     <h1 class="hero-title">
-      Know who to<br>
-      target <em>before</em><br>
-      <span class="accent-word">they do.</span>
+      Your best accounts<br>
+      are <em>already</em><br>
+      <span class="accent-word">showing up.</span>
     </h1>
-
     <p class="hero-sub">
-      <strong>Stop guessing which accounts to pursue.</strong>
-      SignalLayer aggregates intent signals, CRM data, LinkedIn activity, and ad engagement — giving you a clear, AI-ranked list of your best accounts to target, updated every week.
+      <strong>You just can't see them yet.</strong> SignalLayer watches your target accounts across G2, your CRM, LinkedIn and the web — then tells you exactly who to focus on this week, and why.
     </p>
-
-    <!-- WAITLIST FORM -->
-    <div class="waitlist-wrap">
-      <div class="waitlist-form" id="waitlist-form">
-        <input
-          class="waitlist-input"
-          id="email-input"
-          type="email"
-          placeholder="your@company.com"
-          autocomplete="email"
-        />
-        <button class="waitlist-btn" id="waitlist-btn" onclick="handleSubmit()">
-          Join Waitlist
-        </button>
+    <p class="hero-sub2">
+      Built for B2B SaaS teams of 10–200 people who don't have a dedicated ABM team — and don't need one.
+    </p>
+    <div class="coming-wrap">
+      <div class="coming-box">
+        <div class="coming-dot"></div>
+        <div class="coming-text">Coming Soon &nbsp;·&nbsp; Private Beta 2026</div>
       </div>
-      <div class="waitlist-note">
-        <span class="waitlist-count">Built for UK B2B SaaS</span> · No spam, ever · Early access only
+      <div class="coming-sub">
+        UK B2B SaaS &nbsp;·&nbsp; Early access details announced soon
       </div>
     </div>
   </section>
 
-  <!-- PRODUCT MOCKUP -->
+  <!-- HOW IT WORKS -->
+  <div class="how-section">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">From scattered signals to <span>one clear list.</span></h2>
+    <p class="section-sub">Every Monday morning, your team knows exactly which accounts to prioritise. No spreadsheets, no guesswork, no ABM ops required.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Connect your tools</div>
+        <div class="step-desc">Link your CRM, G2, LinkedIn and ad accounts in a few clicks. SignalLayer starts pulling in signals from every source immediately.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">We score the buying group</div>
+        <div class="step-desc">We track signals at <strong>individual contact level</strong> — then roll them up into a single account score. If three people at the same company are showing intent, you'll see it.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Act on it Monday morning</div>
+        <div class="step-desc">Your dashboard and inbox update every week with a ranked account list, plain-English explanations, and a suggested outreach angle for each hot account.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOCKUP -->
   <div class="mockup-section">
     <div style="position:relative;">
       <div class="mockup-shell">
-        <!-- Browser chrome -->
         <div class="mockup-chrome">
           <div class="chrome-dots">
-            <div class="chrome-dot"></div>
-            <div class="chrome-dot"></div>
-            <div class="chrome-dot"></div>
+            <div class="chrome-dot"></div><div class="chrome-dot"></div><div class="chrome-dot"></div>
           </div>
           <div class="chrome-bar">
-            <span class="chrome-url">app.signallayer.com · Target Accounts</span>
+            <span class="chrome-url">app.signallayer.com &nbsp;·&nbsp; This Week's Targets</span>
           </div>
         </div>
-        <!-- Dashboard -->
         <div class="mockup-content">
-          <!-- Sidebar -->
           <div class="mock-sidebar">
             <div class="mock-sidebar-header">Navigation</div>
-            <div class="mock-nav-item active">
-              <div class="mock-nav-icon" style="border-radius:50%;"></div>
-              Target Accounts
-            </div>
-            <div class="mock-nav-item">
-              <div class="mock-nav-icon"></div>
-              Signal Feed
-            </div>
-            <div class="mock-nav-item">
-              <div class="mock-nav-icon" style="border-radius:50% 0 50% 50%;"></div>
-              Integrations
-            </div>
-            <div class="mock-nav-item">
-              <div class="mock-nav-icon" style="transform:rotate(45deg);"></div>
-              AI Insights
-            </div>
-            <div class="mock-nav-item">
-              <div class="mock-nav-icon" style="border-radius:2px;"></div>
-              Settings
-            </div>
+            <div class="mock-nav-item active"><div class="mock-nav-icon" style="border-radius:50%;"></div>Target Accounts</div>
+            <div class="mock-nav-item"><div class="mock-nav-icon"></div>Signal Feed</div>
+            <div class="mock-nav-item"><div class="mock-nav-icon" style="border-radius:50% 0 50% 50%;"></div>Integrations</div>
+            <div class="mock-nav-item"><div class="mock-nav-icon" style="transform:rotate(45deg);"></div>AI Insights</div>
+            <div class="mock-nav-item"><div class="mock-nav-icon" style="border-radius:2px;"></div>Settings</div>
           </div>
-
-          <!-- Main -->
           <div class="mock-main">
             <div class="mock-top-bar">
               <div class="mock-heading">This Week's Targets</div>
               <div class="mock-badge">↻ Updated 2h ago</div>
             </div>
-
             <div class="mock-stats">
-              <div class="mock-stat">
-                <div class="mock-stat-label">Hot Accounts</div>
-                <div class="mock-stat-value teal">24</div>
-                <div class="mock-stat-delta">↑ 6 vs last week</div>
-              </div>
-              <div class="mock-stat">
-                <div class="mock-stat-label">Signals Ingested</div>
-                <div class="mock-stat-value">18.4k</div>
-                <div class="mock-stat-delta">↑ 12% WoW</div>
-              </div>
-              <div class="mock-stat">
-                <div class="mock-stat-label">Avg. Signal Score</div>
-                <div class="mock-stat-value teal">87</div>
-                <div class="mock-stat-delta">↑ from 79</div>
-              </div>
+              <div class="mock-stat"><div class="mock-stat-label">Hot Accounts</div><div class="mock-stat-value teal">24</div><div class="mock-stat-delta">↑ 6 vs last week</div></div>
+              <div class="mock-stat"><div class="mock-stat-label">Buying Groups</div><div class="mock-stat-value teal">11</div><div class="mock-stat-delta">↑ 3 multi-contact</div></div>
+              <div class="mock-stat"><div class="mock-stat-label">Signals Ingested</div><div class="mock-stat-value">18.4k</div><div class="mock-stat-delta">↑ 12% WoW</div></div>
+              <div class="mock-stat"><div class="mock-stat-label">Avg. Score</div><div class="mock-stat-value teal">87</div><div class="mock-stat-delta">↑ from 79</div></div>
             </div>
-
             <div class="mock-accounts">
+              <!-- Account 1 with buying group expanded -->
               <div class="mock-account hot">
                 <div class="mock-account-tag tag-hot">🔥 Hot</div>
-                <div class="mock-account-logo" style="background:rgba(245,158,11,0.15);color:#F59E0B;">Ac</div>
+                <div class="mock-account-logo" style="background:rgba(217,119,6,0.12);color:#D97706;">Ac</div>
                 <div class="mock-account-info">
                   <div class="mock-account-name">Acme SaaS Ltd</div>
-                  <div class="mock-account-sub">G2 intent · CRM activity · LinkedIn ads</div>
+                  <div class="mock-account-sub">G2 intent · CRM active · 2 job postings</div>
+                </div>
+                <div class="mock-buying-group">
+                  <div class="bg-avatars">
+                    <div class="bg-avatar" style="background:#99F6E4;">JM</div>
+                    <div class="bg-avatar" style="background:#5EEAD4;">SR</div>
+                    <div class="bg-avatar" style="background:#2DD4BF;">TK</div>
+                  </div>
+                  <div class="bg-label">3 contacts</div>
                 </div>
                 <div class="mock-signal-score">
-                  <div class="mock-score-value" style="color:#99F6E4;">97</div>
+                  <div class="mock-score-value" style="color:#0D9488;">97</div>
                   <div class="mock-score-bar-wrap"><div class="mock-score-bar" style="width:97%"></div></div>
                 </div>
+                <div class="mock-contacts">
+                  <div class="mock-contact-row"><div class="mock-contact-name">J. Morrison</div><div class="mock-contact-role">VP Marketing</div><div class="mock-contact-score" style="color:#0D9488;">94</div></div>
+                  <div class="mock-contact-row"><div class="mock-contact-name">S. Rafferty</div><div class="mock-contact-role">Head of RevOps</div><div class="mock-contact-score" style="color:#0F766E;">88</div></div>
+                  <div class="mock-contact-row"><div class="mock-contact-name">T. Kimani</div><div class="mock-contact-role">CMO</div><div class="mock-contact-score" style="color:#0F766E;">71</div></div>
+                </div>
               </div>
-
+              <!-- Account 2 -->
               <div class="mock-account hot">
                 <div class="mock-account-tag tag-rising">↑ Rising</div>
-                <div class="mock-account-logo" style="background:rgba(13,148,136,0.15);color:#5EEAD4;">Mv</div>
+                <div class="mock-account-logo" style="background:rgba(13,148,136,0.1);color:#0D9488;">Mv</div>
                 <div class="mock-account-info">
                   <div class="mock-account-name">Maven Analytics</div>
-                  <div class="mock-account-sub">Bombora surge · 3 web visits · job posting</div>
+                  <div class="mock-account-sub">Bombora surge · 3 web visits · new VP hired</div>
+                </div>
+                <div class="mock-buying-group">
+                  <div class="bg-avatars">
+                    <div class="bg-avatar" style="background:#5EEAD4;">AB</div>
+                    <div class="bg-avatar" style="background:#2DD4BF;">LC</div>
+                  </div>
+                  <div class="bg-label">2 contacts</div>
                 </div>
                 <div class="mock-signal-score">
-                  <div class="mock-score-value" style="color:#99F6E4;">91</div>
+                  <div class="mock-score-value" style="color:#0D9488;">91</div>
                   <div class="mock-score-bar-wrap"><div class="mock-score-bar" style="width:91%"></div></div>
                 </div>
               </div>
-
+              <!-- Account 3 -->
               <div class="mock-account">
-                <div class="mock-account-logo" style="background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);">Tb</div>
+                <div class="mock-account-logo" style="background:rgba(100,116,139,0.1);color:#94A3B8;">Tb</div>
                 <div class="mock-account-info">
                   <div class="mock-account-name">Tableau Interactive</div>
                   <div class="mock-account-sub">LinkedIn ad engagement · HubSpot open</div>
                 </div>
+                <div class="mock-buying-group">
+                  <div class="bg-avatars"><div class="bg-avatar" style="background:#CBD5E1;">PD</div></div>
+                  <div class="bg-label">1 contact</div>
+                </div>
                 <div class="mock-signal-score">
-                  <div class="mock-score-value" style="color:rgba(255,255,255,0.6);">78</div>
+                  <div class="mock-score-value" style="color:#94A3B8;">78</div>
                   <div class="mock-score-bar-wrap"><div class="mock-score-bar" style="width:78%;opacity:0.5;"></div></div>
                 </div>
               </div>
@@ -807,176 +764,141 @@
           </div>
         </div>
       </div>
-
-      <!-- Fade overlay -->
       <div class="mockup-overlay"></div>
     </div>
   </div>
 
-  <!-- FEATURES -->
-  <div class="features">
-    <div class="features-label">What SignalLayer does</div>
-    <div class="features-grid">
-      <div class="feature">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#5EEAD4" stroke-width="1.5">
-            <circle cx="12" cy="12" r="3"/>
-            <circle cx="12" cy="12" r="7" stroke-opacity="0.5"/>
-            <circle cx="12" cy="12" r="11" stroke-opacity="0.25"/>
-          </svg>
-        </div>
-        <div class="feature-title">Intent Signal Aggregation</div>
-        <div class="feature-desc">G2, Bombora, LinkedIn, HubSpot, Salesforce — unified into one signal score, updated weekly.</div>
+  <!-- SOURCES -->
+  <div class="sources-section">
+    <div class="section-label">Signal sources</div>
+    <h2 class="section-title">Every signal that matters, <span>in one place.</span></h2>
+    <p class="section-sub">SignalLayer connects the tools you already use and makes sense of what they're telling you.</p>
+    <div class="sources-grid">
+      <div class="source">
+        <div class="source-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7" stroke-opacity="0.5"/><circle cx="12" cy="12" r="11" stroke-opacity="0.25"/></svg></div>
+        <div class="source-name">Intent Data</div>
+        <div class="source-desc">G2 category views, competitor comparisons, and topic-level intent signals. Know who's actively researching solutions like yours.</div>
+        <div class="source-tag">G2 · Bombora</div>
       </div>
-      <div class="feature">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#5EEAD4" stroke-width="1.5">
-            <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
-          </svg>
-        </div>
-        <div class="feature-title">AI Account Ranking</div>
-        <div class="feature-desc">Natural language explanations for every account. Know exactly why an account is hot — this week.</div>
+      <div class="source">
+        <div class="source-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+        <div class="source-name">CRM Activity</div>
+        <div class="source-desc">Deal stage changes, contact engagement, re-opened opportunities. Surface accounts already in motion inside your own system.</div>
+        <div class="source-tag">HubSpot · Salesforce</div>
       </div>
-      <div class="feature">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#5EEAD4" stroke-width="1.5">
-            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-          </svg>
-        </div>
-        <div class="feature-title">Outreach Ready</div>
-        <div class="feature-desc">AI-generated outreach recommendations based on what signals fired. No ABM ops team required.</div>
+      <div class="source">
+        <div class="source-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+        <div class="source-name">Buying Group Signals</div>
+        <div class="source-desc">Track individual contacts and roll them up to company level. When three people at the same account show intent, you'll see the full picture — not just one person.</div>
+        <div class="source-tag">LinkedIn · Web · CRM</div>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- PRICING -->
+  <div class="pricing-section">
+    <div class="pricing-card">
+      <div class="pricing-eyebrow">Built for SMEs, not enterprise</div>
+      <h2 class="pricing-headline">The power of 6sense.<br><span>Without the six-figure price tag.</span></h2>
+      <p class="pricing-body">Enterprise ABM tools charge <strong>£60,000–£200,000 per year</strong> and take months to implement. SignalLayer gives growing B2B SaaS teams the same intelligence at a fraction of the cost — and you'll be up and running in a day.</p>
+      <div class="pricing-comparison">
+        <div class="comp-item comp-them">
+          <div class="comp-price">£60K+</div>
+          <div class="comp-label">6sense / Demandbase</div>
+        </div>
+        <div class="comp-divider">vs</div>
+        <div class="comp-item comp-us">
+          <div class="comp-price">SignalLayer</div>
+          <div class="comp-label">Pricing announced at launch</div>
+        </div>
+      </div>
+      <div class="coming-wrap" style="margin:0 auto;">
+        <div class="coming-box">
+          <div class="coming-dot"></div>
+          <div class="coming-text">Pricing announced at launch &nbsp;·&nbsp; 2026</div>
+        </div>
+        <div class="coming-sub">
+          Early access partners receive preferential rates
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-logo">Signal<span>Layer</span></div>
-    <div class="footer-note">© 2025 SignalLayer · London, UK · hello@signallayer.com</div>
+    <div class="footer-note">© 2026 SignalLayer &nbsp;·&nbsp; Devon, UK &nbsp;·&nbsp; hello@signallayer.com</div>
   </footer>
+
 </main>
 
 <script>
-  // ── CUSTOM CURSOR ──
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
-  let mx = 0, my = 0, rx = 0, ry = 0;
+// ── THEME TOGGLE ──
+const html = document.documentElement;
+const toggle = document.getElementById('themeToggle');
+const icon = document.getElementById('switchIcon');
+const label = document.getElementById('switchLabel');
 
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-  });
+const saved = localStorage.getItem('sl-theme') || 'light';
+setTheme(saved);
 
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
+toggle.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  setTheme(next);
+  localStorage.setItem('sl-theme', next);
+});
 
-  document.querySelectorAll('button, a, input, .feature').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-      ring.style.borderColor = 'rgba(153,246,228,0.7)';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-      ring.style.borderColor = 'rgba(153,246,228,0.35)';
-    });
-  });
+function setTheme(t) {
+  html.setAttribute('data-theme', t);
+  icon.textContent = t === 'dark' ? '🌙' : '☀️';
+  label.textContent = t === 'dark' ? 'Dark' : 'Light';
+}
 
-  // ── ANIMATED BACKGROUND CANVAS ──
-  const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
+// ── CURSOR ──
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+function animateRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animateRing);}
+animateRing();
+document.querySelectorAll('button,a,input,.source,.step').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.transform='translate(-50%,-50%) scale(2)';});
+  el.addEventListener('mouseleave',()=>{cursor.style.transform='translate(-50%,-50%) scale(1)';});
+});
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // Animated signal rings from a point
-  const rings = [];
-  function addRing() {
-    rings.push({ r: 0, maxR: Math.random() * 300 + 200, x: Math.random() * canvas.width, y: Math.random() * canvas.height, speed: Math.random() * 0.4 + 0.2, opacity: 0.12 });
-  }
-  for (let i = 0; i < 3; i++) addRing();
-  setInterval(addRing, 4000);
-
-  // Particles
-  const particles = Array.from({length: 40}, () => ({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    vx: (Math.random() - 0.5) * 0.3,
-    vy: (Math.random() - 0.5) * 0.3,
-    r: Math.random() * 1.5 + 0.5,
-    opacity: Math.random() * 0.3 + 0.05
-  }));
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw rings
-    for (let i = rings.length - 1; i >= 0; i--) {
-      const ring = rings[i];
-      ring.r += ring.speed;
-      const progress = ring.r / ring.maxR;
-      const alpha = ring.opacity * (1 - progress);
-      ctx.beginPath();
-      ctx.arc(ring.x, ring.y, ring.r, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(13,148,136,${alpha})`;
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      if (ring.r > ring.maxR) rings.splice(i, 1);
+// ── CANVAS ── (dark mode only)
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+resize(); window.addEventListener('resize',resize);
+const rings=[];
+function addRing(){rings.push({r:0,maxR:Math.random()*300+200,x:Math.random()*canvas.width,y:Math.random()*canvas.height,speed:Math.random()*0.4+0.2,opacity:0.12});}
+for(let i=0;i<3;i++)addRing();
+setInterval(addRing,4000);
+const particles=Array.from({length:40},()=>({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,r:Math.random()*1.5+0.5,opacity:Math.random()*0.3+0.05}));
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const dark = html.getAttribute('data-theme')==='dark';
+  if(dark){
+    for(let i=rings.length-1;i>=0;i--){
+      const rg=rings[i];rg.r+=rg.speed;
+      const p=rg.r/rg.maxR;
+      ctx.beginPath();ctx.arc(rg.x,rg.y,rg.r,0,Math.PI*2);
+      ctx.strokeStyle=`rgba(13,148,136,${rg.opacity*(1-p)})`;ctx.lineWidth=1;ctx.stroke();
+      if(rg.r>rg.maxR)rings.splice(i,1);
     }
-
-    // Draw particles
-    particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) p.x = canvas.width;
-      if (p.x > canvas.width) p.x = 0;
-      if (p.y < 0) p.y = canvas.height;
-      if (p.y > canvas.height) p.y = 0;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(153,246,228,${p.opacity})`;
-      ctx.fill();
+    particles.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=canvas.width;if(p.x>canvas.width)p.x=0;
+      if(p.y<0)p.y=canvas.height;if(p.y>canvas.height)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(153,246,228,${p.opacity})`;ctx.fill();
     });
-
-    requestAnimationFrame(draw);
   }
-  draw();
+  requestAnimationFrame(draw);
+}
+draw();
 
-  // ── WAITLIST FORM ──
-  function handleSubmit() {
-    const input = document.getElementById('email-input');
-    const btn = document.getElementById('waitlist-btn');
-    const email = input.value.trim();
 
-    if (!email || !email.includes('@')) {
-      input.style.color = '#F87171';
-      input.placeholder = 'Valid email required';
-      setTimeout(() => { input.style.color = ''; input.placeholder = 'your@company.com'; }, 2000);
-      return;
-    }
-
-    btn.textContent = '✓ You\'re on the list';
-    btn.classList.add('success');
-    input.value = '';
-    input.placeholder = 'We\'ll be in touch soon';
-    input.disabled = true;
-
-    // In production, POST to your backend here
-    // fetch('/api/waitlist', { method: 'POST', body: JSON.stringify({ email }) })
-  }
-
-  document.getElementById('email-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') handleSubmit();
-  });
 </script>
 </body>
 </html>
